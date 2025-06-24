@@ -11,4 +11,7 @@ test('handle login opening new tab', async ({ page, context }) => {
 
   await newPage.waitForLoadState('load');
   expect(newPage.url()).toContain('uibakery');
+
+  await page.fill('#input-email', 'test@example.com');
+
 });
