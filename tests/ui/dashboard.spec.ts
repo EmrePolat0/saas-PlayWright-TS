@@ -12,7 +12,17 @@ test('handle login opening new tab', async ({ page, context }) => {
   await newPage.waitForLoadState('load');
   expect(newPage.url()).toContain('uibakery');
 
-  await page.fill('#input-email', 'test@example.com');
+  await newPage.getByPlaceholder('name@company.com').fill('test@example.com');
+  await newPage.getByPlaceholder('password').fill('testPassword1.');
+  await newPage.getByRole('button', { name: 'Log In' }).click();
+  await newPage.getByText('Actions Library').click();
+
+  await expect(newPage.getByText('Actions Library')).toBeVisible();
+ // await expect(newPage).toHaveURL('/uibakery/');
+
+  //await expect(newPage.locator('.name')).toHaveText('test@example');
+  await newPage.locator('.CodeMirror-code');
+  await page.keyboard.type('https://jsonplaceholder.typicode.com/posts');
+  await newPage.locator('.text', { hasText: 'Execute action' }).click();
 
 });
-//

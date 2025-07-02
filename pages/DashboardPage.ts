@@ -10,7 +10,7 @@ export class DashboardPage {
     this.page = page;
     this.userStatsCard = page.locator('text=Users Statistics');
     this.salesChart = page.locator('canvas'); // Assuming there’s a chart
-    this.notificationsPan el = page.locator('text=Notifications');
+    this.notificationsPanel = page.locator('text=Notifications');
   }
 
   async goto() {
@@ -27,6 +27,6 @@ export class DashboardPage {
 
   async isNotificationsVisible() {
     return this.notificationsPanel.isVisible();
-    
+
   }
 }
