@@ -15,3 +15,4 @@ test('handle login opening new tab', async ({ page, context }) => {
   await page.fill('#input-email', 'test@example.com');
 
 });
+//
