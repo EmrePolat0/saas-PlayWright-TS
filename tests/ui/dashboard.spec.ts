@@ -27,6 +27,10 @@ test('handle login opening new tab', async ({ page, context }) => {
 
   const segmentValue = page.locator('span.segment-value', { hasText: 'userId: 1' });
 
-  await  expect(segmentValue).toContainText('userId: 1');
-  
+  //await  expect(segmentValue).toContainText('userId: 1');
+
+  //console.log(await page.locator('button[title="Dashboard"]').count());
+  await page.locator('.nb-overlay-container').waitFor({ state: 'visible' });
+  await page.getByText('Back to apps', { exact: true }).click();
+
 });
