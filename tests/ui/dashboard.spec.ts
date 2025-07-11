@@ -25,4 +25,10 @@ test('handle login opening new tab', async ({ page, context }) => {
   await page.keyboard.type('https://jsonplaceholder.typicode.com/posts');
   await newPage.locator('.text', { hasText: 'Execute action' }).click();
 
-});
+
+const objectSpan = page.locator('span.segment-value').filter({
+  hasText: 'userId: 1',
+}).click;
+//await expect(objectSpan).toContain('userId: 1');
+})
+ 
