@@ -25,6 +25,7 @@ test('handle login opening new tab', async ({ page, context }) => {
   await page.keyboard.type('https://jsonplaceholder.typicode.com/posts');
   await newPage.locator('.text', { hasText: 'Execute action' }).click();
 
+<<<<<<< HEAD
 
 const objectSpan = page.locator('span.segment-value').filter({
   hasText: 'userId: 1',
@@ -32,3 +33,14 @@ const objectSpan = page.locator('span.segment-value').filter({
 //await expect(objectSpan).toContain('userId: 1');
 })
  
+=======
+  const segmentValue = page.locator('span.segment-value', { hasText: 'userId: 1' });
+
+  //await  expect(segmentValue).toContainText('userId: 1');
+
+  //console.log(await page.locator('button[title="Dashboard"]').count());
+  await page.locator('.nb-overlay-container').waitFor({ state: 'visible' });
+  await page.getByText('Back to apps', { exact: true }).click();
+
+});
+>>>>>>> bf16e513565da4488f6cfe341d0d390fa9270942
