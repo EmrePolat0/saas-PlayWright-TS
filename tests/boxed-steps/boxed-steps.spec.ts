@@ -13,3 +13,8 @@ test.describe('add to cart scenarios', () => {
   });
 
 });
+  test('add to cart from carousel', async ({ page }) => {
+    await page.getByRole('button', { name: 'Buy Now' }).click();
+    await addAndViewCart(page);
+    await expect(page.getByText('Xbox Wireless Controller Lunar Shift Special Edition')).toBeVisible();
+  });
