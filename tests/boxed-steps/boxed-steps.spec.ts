@@ -18,3 +18,13 @@ test.describe('add to cart scenarios', () => {
     await addAndViewCart(page);
     await expect(page.getByText('Xbox Wireless Controller Lunar Shift Special Edition')).toBeVisible();
   });
+  test('add to cart from search', async ({ page }) => {
+    const product = 'Xbox Wireless Controller Mineral Camo Special Edition'
+    const placeholder = page.getByPlaceholder('Search by product name or search by image')
+    await placeholder.click();
+    await placeholder.fill('xbox');
+    await placeholder.press('Enter');
+    await page.getByRole('img', { name: product }).click();
+    await addAndViewCart(page);
+    await expect(page.getByText(product)).toBeVisible();
+  });
