@@ -28,3 +28,11 @@ test.describe('add to cart scenarios', () => {
     await addAndViewCart(page);
     await expect(page.getByText(product)).toBeVisible();
   });
+
+  test('add to cart from all products page', async ({ page }) => {
+    const product = 'Xbox Wireless Controller Lunar Shift Special Edition'
+    await page.getByRole('link', { name: 'All Products' }).first().click();
+    await page.getByRole('img', { name: product }).click();
+    await addAndViewCart(page);
+    await expect(page.getByText(product)).toBeVisible();
+  });
