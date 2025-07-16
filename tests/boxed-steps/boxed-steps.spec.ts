@@ -36,3 +36,10 @@ test.describe('add to cart scenarios', () => {
     await addAndViewCart(page);
     await expect(page.getByText(product)).toBeVisible();
   });
+    test('add to cart from laptops page', async ({ page }) => {
+    const product = 'Microsoft Surface Pro X 1876 13 Inches Laptop'
+    await page.getByRole('link', { name: 'Laptops' }).first().click();
+    await page.getByRole('img', { name:  product}).click();
+    await addAndViewCart(page);
+    await expect(page.getByText(product)).toBeVisible();
+  });
